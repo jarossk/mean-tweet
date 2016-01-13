@@ -1,0 +1,22 @@
+{
+  "name": "mean-tweet",
+  "version": "1.0.0",
+  "description": "Building tweet, a MEAN Twitter Clone",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jarossk/mean-tweet.git"
+  },
+  "author": "Jarek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jarossk/mean-tweet/issues"
+  },
+  "homepage": "https://github.com/jarossk/mean-tweet#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
