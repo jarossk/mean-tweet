@@ -6,13 +6,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport');
-
- var mongoose = require('mongoose');
- mongoose.connect('mongodb://localhost/tweet-it');
-
+require('./models/models');
 var authenticate = require('./routes/authenticate')(passport);
 var api = require('./routes/api');
 
+ var mongoose = require('mongoose');
+ mongoose.connect('mongodb://localhost/tweet-it');
 
 var app = express();
 app.set('views', path.join(__dirname, 'views'));
