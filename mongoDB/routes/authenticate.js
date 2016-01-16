@@ -10,7 +10,7 @@ module.exports = function(passport) {
   
   // send failure login state back to angular
   router.get('/failure', function(req, res) {
-    res.send('failure', user: null, message: "Invalid username or password");
+    res.send({state: 'failure', user: null, message: "Invalid username or password"});
   });
   
   // log in
