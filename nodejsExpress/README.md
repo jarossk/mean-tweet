@@ -1,4 +1,4 @@
-Module 3: Introduction to Node.js and Express
+Introduction to Node.js and Express
 
 Getting Started
 - Generating a blank Express Application
