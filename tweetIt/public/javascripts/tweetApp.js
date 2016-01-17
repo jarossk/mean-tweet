@@ -1,4 +1,4 @@
-var app = angular.module('tweetpApp', ['ngRoute']);
+var app = angular.module('tweetApp', ['ngRoute']);
 
 app.config(function($routeProvider) {
 	$routeProvider
