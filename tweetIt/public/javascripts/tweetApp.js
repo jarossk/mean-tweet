@@ -1,6 +1,12 @@
-var app = angular.module('tweetApp', ['ngRoute']).run(function($rootScope) {
+var app = angular.module('tweetApp', ['ngRoute', 'ngResource']).run(function($http, $rootScope) {
   $rootScope.authenticated = false;
   $rootScope.current_user = '';
+  
+  $rootScope.signout = function() {
+    $http.get('auth/signout');
+    $rootScope.authenticated = false;
+    $rootScope.current_user = '';
+  };
 });
 
 app.config(function($routeProvider) {
@@ -38,7 +44,7 @@ app.controller('authController', function($scope, $http, $rootScope, $location) 
 	$scope.error_message = '';
 
 	$scope.login = function() {
-    // $scope.error_message = 'login request for ' + $scope.user.username;1
+    // $scope.error_message = 'login request for ' + $scope.user.username;
     $http.post('/auth/login', $scope.user).success(function(data) {
       if(data.state == 'success') {
         $rootScope.authenticated = true;
