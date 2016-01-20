@@ -9,4 +9,3 @@ Services
 - Calling our APIs through a Factory Service
 - Using ngResources
 - Limiting posts
-- 
