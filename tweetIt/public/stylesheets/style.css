@@ -1,3 +1,32 @@
+body {
+  	padding-top:70px;
+	width: 100%;
+    height: 100%;
+	width: 100%;
+    height: 100%;
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+a {}
+#post-stream {background-color: deeppink;}
+
+.submit-btn {
+ background-color: green;
+ margin: 10px 0 10px 0;
+}
+.post {
+  background-color: dodgerblue;
+  padding: 10px;
+	margin-bottom: 5px;
+	border-radius: 5px;
+  }
+.odd {
+	background-color: #f2f9ff;
+	
+}
+.even {
+	background-color: #eceff3;
+}
+
 .form-auth {
   padding: 30px;
   margin: 0 auto;
