@@ -88,6 +88,6 @@ module.exports = function(passport) {
   };
 // Generates hash using bCrypt
   var createHash = function(password) {
-    return bCrypt.hashSync(passowrd, bCrypt.genSaltSync(10), null);
+    return bCrypt.hashSync(password, bCrypt.genSaltSync(10), null);
   };
 };

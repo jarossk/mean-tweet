@@ -28,21 +28,24 @@ app.config(function($routeProvider) {
 		});
 });
 
-app.controller('mainController', function($scope, postService) {
-	$scope.posts = [];
+app.controller('mainController', function($scope, postService, $rootScope) {
+	$scope.posts = postService.query();
 	$scope.newPost = {created_by: '', text: '', created_at: ''};
-  
-  postService.getAll().success(function(data) {
-    $scope.posts = data;
-  });
-	
+//  postService.getAll().success(function(data) { $scope.posts = data; });
 	$scope.post = function() {
+    $scope.newPost.created_by = $rootScope.current_user;
 		$scope.newPost.created_at = Date.now();
-		$scope.posts.push($scope.newPost);
-		$scope.newPost = {created_by: '', text: '', created_at: ''};
+// $scope.posts.push($scope.newPost);
+    postService.save($scope.newPost, function() {
+      $scope.posts = postService.query();
+      scope.newPost = {created_by: '', text: '', created_at: ''};
+    });
 	};
 });
-
+app.factory('postService', function($resource) {
+  return $resource('/api/post/:id');
+});
+/*
 app.factory('postService', function($http) {
   var baseUrl = "/api/posts";
   var factory = {};
@@ -51,6 +54,7 @@ app.factory('postService', function($http) {
   };
   return factory;
 });
+*/
 
 app.controller('authController', function($scope, $http, $rootScope, $location) {
 	$scope.user = {username: '', password: ''};
