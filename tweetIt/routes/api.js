@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Post = mongoose.model('Post');
+var User = mongoose.model('User');
 
 // Used for routes that must be authenticated 
 function isAuthenticated(req, res, next) {
@@ -27,9 +28,11 @@ router.route('/posts')
 
 // create a new post
   .post(function(req, res) {
+    
     var post = new Post();
     post.text = req.body.text;
     post.created_by = req.body.created_by;
+    console.log(req.body.created_by);
     post.save(function(err, post) {
       if(err) {
         return res.send(500, err);
@@ -43,7 +46,7 @@ router.route('/posts')
       if(err) {
         return res.send(500, err);
       }
-      return res.send(posts);
+      return res.send(200, posts);
     });
   });
   
